@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GlowKart Cosmetics</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff5f8;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background: #ff4f8b;
+            color: white;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .search-box {
+            display: flex;
+        }
+
+        .search-box input {
+            padding: 10px;
+            width: 250px;
+            border: none;
+            outline: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-box button {
+            padding: 10px 15px;
+            border: none;
+            background: black;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile {
+            font-size: 18px;
+        }
+
+        .cart {
+            cursor: pointer;
+        }
+
+        .logout-btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background: black;
+            color: white;
+            cursor: pointer;
+        }
+
+        nav {
+            background: #222;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop') center/cover;
+            color: white;
+        }
+
+        .hero-text {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            border-radius: 15px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .hero button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            background: #ff4f8b;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .products {
+            padding: 60px 40px;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .product-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            padding: 15px;
+        }
+
+        .card p {
+            padding: 0 15px;
+        }
+
+        .price {
+            padding: 15px;
+            font-size: 22px;
+            color: #ff4f8b;
+            font-weight: bold;
+        }
+
+        .card button {
+            margin: 15px;
+            padding: 10px 20px;
+            border: none;
+            background: #ff4f8b;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .offer {
+            background: #ff4f8b;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .offer h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .offer button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            background: black;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            GlowKart
+        </div>
+
+        <div class="search-box">
+
+            <input type="text" placeholder="Search cosmetics...">
+
+            <button>
+                <i class="fa fa-search"></i>
+            </button>
+
+        </div>
+
+        <div class="user-menu">
+
+            <div class="profile">
+                <i class="fa fa-user-circle"></i>
+                Prajakta
+            </div>
+
+            <div class="cart">
+                <i class="fa fa-shopping-cart"></i>
+                Cart
+            </div>
+
+            <button class="logout-btn" onclick="logout()">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+    <nav>
+
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Contact</a>
+
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <h1>Premium Beauty Products</h1>
+
+            <p>
+                Luxury cosmetics & skincare for modern beauty lovers.
+            </p>
+
+            <button onclick="showOffer()">
+                Shop Now
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="products" id="products">
+
+        <h2>Trending Products</h2>
+
+        <div class="product-container">
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop">
+
+                <h3>Matte Lipstick</h3>
+
+                <p>Long lasting waterproof lipstick.</p>
+
+                <div class="price">
+                    ₹499
+                </div>
+
+                <button>Add To Cart</button>
+
+            </div>
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop">
+
+                <h3>Glow Foundation</h3>
+
+                <p>Natural finish for glowing skin.</p>
+
+                <div class="price">
+                    ₹899
+                </div>
+
+                <button>Add To Cart</button>
+
+            </div>
+
+            <div class="card">
+
+                <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop">
+
+                <h3>Face Cream</h3>
+
+                <p>Hydrating skincare cream.</p>
+
+                <div class="price">
+                    ₹699
+                </div>
+
+                <button>Add To Cart</button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="offer" id="offers">
+
+        <h2>Flat 40% OFF</h2>
+
+        <p>
+            Limited time weekend sale.
+        </p>
+
+        <button onclick="showOffer()">
+            Claim Offer
+        </button>
+
+    </section>
+
+    <footer id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>
+            <i class="fa fa-phone"></i>
+            +91 9876543210
+        </p>
+
+        <p>
+            <i class="fa fa-envelope"></i>
+            glowkart@gmail.com
+        </p>
+
+        <p>
+            <i class="fa-brands fa-instagram"></i>
+            @glowkartbeauty
+        </p>
+
+        <p>
+            © 2026 GlowKart Cosmetics
+        </p>
+
+    </footer>
+
+    <script>
+
+        function logout() {
+
+            alert("Logged Out Successfully");
+
+            window.location.href = "index.html";
+
+        }
+
+        function showOffer() {
+
+            alert("🎉 Flat 40% OFF on all cosmetics!");
+
+        }
+
+    </script>
+
+</body>
+
+</html>
